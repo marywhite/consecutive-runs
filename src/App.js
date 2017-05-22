@@ -4,6 +4,7 @@ import Form from './Form'
 import TagGroup from './TagGroup'
 import Result from './Result'
 import './App.css'
+import buildConsecutive from './util/consecutive'
 const { Header, Content, Footer } = Layout
 
 class App extends Component {
@@ -11,25 +12,28 @@ class App extends Component {
     super(props)
     this.state = {
       list: [],
-      matches: []
+      matches: [],
+      findConsecutive: buildConsecutive()
     }
     console.log(this)
   }
 
   handleSubmit = (arr) =>  {
-    const { list } = this.state
+    const { list, findConsecutive } = this.state
     const newList = [...list, ...arr]
-    const newState = Object.assign({}, this.state, {list: arr})
+    const matches = findConsecutive(newList)
+    const newState = Object.assign({}, this.state, {list: newList, matches})
     this.setState(newState)
   }
 
   handleRemove = (index) => {
-    const { list } = this.state
+    const { list, findConsecutive } = this.state
     const newList = Array.from(list)
     newList.splice(index, 1)
+    const newMatches = findConsecutive(newList)
     const newState = Object.assign({}, this.state, {
       list: newList,
-      matches: []
+      matches: newMatches
     })
     this.setState(newState)
   }
