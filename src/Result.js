@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Tag } from 'antd';
+import { Tag } from 'antd';
 
 class Result extends Component {
 

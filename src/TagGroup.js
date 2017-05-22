@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Tag, Input, Tooltip, Button } from 'antd'
+import { Tag, Tooltip, Button } from 'antd'
 
-class TagGroup extends React.Component {
+class TagGroup extends Component {
 
     remove = (index) => {
         const { removeTag } = this.props
