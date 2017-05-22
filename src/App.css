@@ -3,3 +3,13 @@
 .App {
   text-align: center;
 }
+
+.component-header {
+  background-color: #91A8D0;
+  color: white;
+}
+
+.component-layout {
+  background-color:white;
+}
+
