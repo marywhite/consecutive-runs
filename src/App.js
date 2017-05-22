@@ -1,15 +1,38 @@
 import React, { Component } from 'react'
 import { Layout, Card } from 'antd'
 import Form from './Form'
+import TagGroup from './TagGroup'
 import './App.css'
 const { Header, Content, Footer } = Layout
 
 class App extends Component {
-  handleSubmit(input) {
-    console.log(input)
+  constructor(props) {
+    super(props)
+    this.state = {
+      list: [],
+      matches: []
+    }
+    console.log(this)
   }
-  render() {
-    const { handleSubmit } = this
+
+  handleSubmit = (arr) =>  {
+    const { list } = this.state
+    const newList = [...list, ...arr]
+    const newState = Object.assign({}, this.state, {list: arr})
+    this.setState(newState)
+  }
+
+  handleRemove = (index) => {
+    console.log(index)
+  }
+
+  handleClear = () => {
+    console.log('clear')
+  }
+
+  render = () => {
+    const { handleSubmit, state, handleRemove, handleClear } = this
+    const { list, matches } = state
     return (
       <Layout className="component-layout">
         <Header className="component-header">
@@ -22,9 +45,18 @@ class App extends Component {
               {`Enter numbers separated by spaces: i.e. "1 2 3" or commas "1,2,3" to get started!`}
             </p>
             <Form
-              handleSubmit={this.handleSubmit}
+              handleSubmit={handleSubmit}
               />
           </Card>
+            <Card>
+              <h2>Entered Numbers: </h2>
+              <TagGroup
+                tags={state.list || []}
+                matches={state.matches || []}
+                removeTag={handleRemove}
+                handleClear={handleClear}
+              />
+            </Card>
         </Content>
         <Footer></Footer>
       </Layout>

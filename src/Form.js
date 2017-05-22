@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Form, Input, Button} from 'antd'
 const FormItem = Form.Item
 
@@ -15,7 +15,7 @@ function normalizeInput(input) {
   return commas.replace(/\s+/g, ',')
 }
 
-class HorizontalLoginForm extends React.Component {
+class InputForm extends Component {
   componentDidMount() {
     this.props.form.validateFields()
   }
@@ -83,4 +83,4 @@ class HorizontalLoginForm extends React.Component {
   }
 }
 
-export default Form.create()(HorizontalLoginForm)
+export default Form.create()(InputForm)
