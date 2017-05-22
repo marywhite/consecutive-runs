@@ -1,25 +1,22 @@
-## Table of Contents
-
-Implmentation of Find Consecutive Runs challenge using [CreateReactApp](https://github.com/facebookincubator/create-react-app) and [Ant-Design](https://ant.design/)
-
-User can input a list of integer values (either comma separated, or space delimited) and determine which indices in the list begin runs of three.
-
-It is also possible to remove previously entered list items by clicking 'x' on an individual tag
 ## Example Usage
 
 To run the app:
 
-```sh
+```
 npm install
-create-react-app my-app
-cd consecutive-runs
 npm start
+```
+or with yarn
+
+```
+yarn install
+yarn start
 ```
 
 Alternatively include:
-- public/index.html
--
-
+- build/index.html
+- build/static/css/main.23b26a81.css
+- build/static/js/main.bd1da5f8.js
 in an existing project.
 
 Given the input:
@@ -40,5 +37,4 @@ const step = 2
 const number = 4
 findConsecutive: buildConsecutive(step, number)
 ```
-to change default step values and search for runs of different sizes. A future case might implement a ui which allows for
-manual configuration of these properties.
+to change default step values and search for runs of different sizes. A future case might implement a UI which allows for configuration of these properties.
