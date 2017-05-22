@@ -23,11 +23,22 @@ class App extends Component {
   }
 
   handleRemove = (index) => {
-    console.log(index)
+    const { list } = this.state
+    const newList = Array.from(list)
+    newList.splice(index, 1)
+    const newState = Object.assign({}, this.state, {
+      list: newList,
+      matches: []
+    })
+    this.setState(newState)
   }
 
   handleClear = () => {
-    console.log('clear')
+    const newState = Object.assign({}, this.state, {
+      list: [],
+      matches: []
+    })
+    this.setState(newState)
   }
 
   render = () => {
@@ -51,8 +62,8 @@ class App extends Component {
             <Card>
               <h2>Entered Numbers: </h2>
               <TagGroup
-                tags={state.list || []}
-                matches={state.matches || []}
+                tags={list || []}
+                matches={matches || []}
                 removeTag={handleRemove}
                 handleClear={handleClear}
               />
