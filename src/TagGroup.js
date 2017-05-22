@@ -43,7 +43,7 @@ class TagGroup extends React.Component {
                                 type="dashed"
                                 >
                                 Clear
-                            </Button> : <p>No numbers entered.</p>
+                            </Button> : <p>No Numbers Entered.</p>
                     }
                 </div>
             </div>
