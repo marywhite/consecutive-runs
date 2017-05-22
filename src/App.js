@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Layout, Card } from 'antd'
 import Form from './Form'
 import TagGroup from './TagGroup'
+import Result from './Result'
 import './App.css'
 const { Header, Content, Footer } = Layout
 
@@ -66,6 +67,12 @@ class App extends Component {
                 matches={matches || []}
                 removeTag={handleRemove}
                 handleClear={handleClear}
+              />
+            </Card>
+            <Card>
+              <h2>Matching Indices:</h2>
+              <Result
+                value={matches || []}
               />
             </Card>
         </Content>
